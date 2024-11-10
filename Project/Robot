@@ -1,0 +1,30 @@
+import time
+
+class Robot:
+    def __init__(self, name):
+        self.name = name
+
+    def ask_for_water(self, person):
+        print(f"{person}: {self.name} I am a robot distributing water. Do you want some water?")
+        response = input().strip().lower()
+        
+        if response == "yes":
+            print("robot: Please have some water.")
+        elif response == "no":
+            print("robot: Sorry for the inconvenience.")
+        else:
+            print("robot: Sorry, I didn't understand your response. Can you please reply with 'yes' or 'no'?")
+
+# Create an instance of the robot
+my_robot = Robot("robot")
+
+# List of people in the park
+people_in_park = ["Person 1", "Person 2", "Person 3"]
+
+# The robot asks each person every three hours
+while True:
+    for person in people_in_park:
+        my_robot.ask_for_water(person)
+    
+    # Wait for 3 hours (10800 seconds)
+    time.sleep(10800)
